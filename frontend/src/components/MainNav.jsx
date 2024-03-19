@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-// import { useAuth } from '../AuthContext';
+import { useAuth } from '../AuthContext';
 
 import Wrapper from './Wrapper';
 
@@ -18,6 +18,8 @@ export default function MainNav() {
                     {/* )} */}
                 </ul>
             </nav>
+
+            
         </Wrapper>
     );
 }

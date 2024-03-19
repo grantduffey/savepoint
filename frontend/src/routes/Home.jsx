@@ -2,13 +2,18 @@
 // import { Link } from 'react-router-dom';
 import Wrapper from '../components/Wrapper';
 
+import '../global.css'
+
 
 const Home = () => {
     // const { isAuth } = useAuth();
     return (
         <Wrapper>
             <h1>Home</h1>
-            <p>Welcome home, you&apos;ve arrived.</p>
+            <p>Test</p>
+            <button className="btn">Hello daisyUI</button>
+
+        
         </Wrapper>
     );
 };

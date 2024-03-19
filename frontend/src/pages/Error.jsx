@@ -2,7 +2,7 @@ const Error = () => {
     return (
         <>
             <h1>Uh oh!</h1>
-            <p>WHAT DID YOU DO?????</p>
+            <p>Something went wrong!</p>
         </>
     );
 };
