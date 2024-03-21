@@ -21,7 +21,9 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 
 
 origins = [
-    "http://localhost:*"
+    "http://localhost:*",
+    "http://localhost:8000",
+    "http://localhost:5173",
 ]
 
 app.add_middleware(
@@ -132,10 +134,20 @@ def add_review(review: ReviewSchema):
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Game does not exist on Steam",
         )
+        
+    game = steam.apps.get_app_details(str(review.steam_id))
+    game_title = game[str(review.steam_id)]["data"]["name"]
+    game_img = game[str(review.steam_id)]["data"]["header_image"]
+    
+    print(game_title)
+    print(game_img)
+    
     # Post the review
     review = supabase.table("reviews").insert({
-        "steam_id": review.steam_id, 
         "user_id": review.user_id,
+        "steam_id": review.steam_id, 
+        "game_title": game_title,
+        "game_img": game_img,
         "rating": review.rating,
         "favorite": review.favorite,
         "content": review.content
@@ -172,4 +184,8 @@ def add_review(review: ReviewSchema):
 
 # test = steam.apps.search_games("0")
 # if not test["apps"]:
-#     print("EMPTY ARRAY")
+# #     print("EMPTY ARRAY")
+
+# test = steam.apps.get_app_details("504230")
+# temp = test["504230"]["data"]["header_image"]
+# print(temp)

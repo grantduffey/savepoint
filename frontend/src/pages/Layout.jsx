@@ -1,15 +1,10 @@
 import { Outlet } from 'react-router-dom';
-
-import MainNav from '../components/MainNav';
-
-const Layout = () => {
-
-    return (
-        <>
-            <MainNav />
-            <Outlet />
-        </>
-    );
-};
+import Nav from '../components/Nav.jsx'
+const Layout = () => (
+    <>
+        <Nav/>
+        <Outlet />
+    </>
+);
 
 export default Layout;

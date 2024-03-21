@@ -1,14 +1,16 @@
-import { AuthProvider } from './AuthContext';
 import Routes from './routes/Routes';
-
+// import { useState } from 'react'
 import './global.css'
 
+
 function App() {
-    return (
-        <AuthProvider>
-          <Routes/>
-        </AuthProvider>
-    );
+  // const [count, setCount] = useState(0)
+
+  return (
+    <>
+      <Routes/>
+    </>
+  )
 }
 
-export default App;
+export default App
