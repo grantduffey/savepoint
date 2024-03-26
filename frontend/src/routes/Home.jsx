@@ -30,20 +30,19 @@ const Home = () => {
     const reviews = useLoaderData();
     return (
         <>
-            <h1>Home Page</h1>
             <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5">
                 {reviews.data.map(review => (
-                    <Link to="/" key={review.id}>
-                            <div className="card w-95 bg-base-300 shadow-xl">
+                    <ul key={review.id}>
+                            <div className="card bg-base-300 shadow-xl">
                                 <figure><img src={review.game_img} alt="Game image" /></figure>
                                 <div className="card-body">
-                                    <h2 className="card-title">{review.game_title} | {review.rating} STARS</h2>
+                                    <h2 className="card-title justify-center items-center">{review.game_title} | {review.rating} STARS</h2>
                                     <p>{review.content}</p>
                                     <div className="card-actions justify-end">
                                     </div>
                                 </div>
                             </div>
-                    </Link>
+                    </ul>
 
                 ))}
             </div>

@@ -1,4 +1,6 @@
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { SearchBar } from './SearchBar';
+// import { useState } from "react"
 
 export default function Nav() {
     return (
@@ -8,7 +10,8 @@ export default function Nav() {
         </div>
         <div className="flex-none gap-2">
             <div className="form-control">
-            <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
+            {/* <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" /> */}
+            <SearchBar/>
             </div>
             <div className="dropdown dropdown-end">
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">

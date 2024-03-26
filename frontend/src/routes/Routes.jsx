@@ -3,6 +3,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home, { loader as homeLoader } from './Home';
 import Layout from '../pages/Layout';
 import Error from '../pages/Error'
+import SearchResults from './SearchResults';
+import Game from './Game';
 
 const Routes = () => {
     // const { isAuth } = useAuth();
@@ -16,6 +18,14 @@ const Routes = () => {
                     path: '/',
                     element: <Home />,
                     loader: homeLoader
+                },
+                {
+                    path: '/search',
+                    element: <SearchResults />,
+                },
+                {
+                    path: '/game',
+                    element: <Game />,
                 },
             ],
         },

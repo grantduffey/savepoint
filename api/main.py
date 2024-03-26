@@ -5,6 +5,7 @@ from fastapi.security import OAuth2PasswordBearer
 from steam import Steam
 from decouple import config
 from supabase import create_client, Client
+import re
 
 from models.games import GameSchema
 from models.reviews import ReviewSchema
@@ -139,8 +140,8 @@ def add_review(review: ReviewSchema):
     game_title = game[str(review.steam_id)]["data"]["name"]
     game_img = game[str(review.steam_id)]["data"]["header_image"]
     
-    print(game_title)
-    print(game_img)
+    # print(game_title)
+    # print(game_img)
     
     # Post the review
     review = supabase.table("reviews").insert({
@@ -154,15 +155,19 @@ def add_review(review: ReviewSchema):
     }).execute()
     return review
 
+@app.get("/search/{id}")
+def search_games(id: str):
+    game = steam.apps.search_games(id)
+    # for i, x in enumerate (game['apps']):
+    #     game['apps'][i]['name'] = re.sub(r'\W+', '', x['name'].encode())
+    return game['apps']
+
+
 # @app.get("/games")
 # def get_all_games():
 #     games = supabase.table("games").select("*").execute()
 #     return games
 
-# @app.get("/games/{id}")
-# def get_game(id: int):
-#     game = supabase.table("games").select("*").eq("steam_id", id).execute()
-#     return game
 
 # # Add a check to see if the database alreay has a game
 # @app.post("/games/add", status_code=status.HTTP_201_CREATED)
