@@ -1,12 +1,21 @@
 import { Link } from 'react-router-dom';
 import { SearchBar } from './SearchBar';
+import { useNavigate } from "react-router-dom";
+
 // import { useState } from "react"
 
 export default function Nav() {
+
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate("/") 
+    }
+
     return (
         <div className="navbar bg-base-100">
         <div className="flex-1">
-            <a className="btn btn-ghost text-xl">savepoint!</a>
+            <button onClick={() => handleClick()} className="btn btn-ghost text-xl">savepoint!</button>
         </div>
         <div className="flex-none gap-2">
             <div className="form-control">

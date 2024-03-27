@@ -6,6 +6,7 @@ from steam import Steam
 from decouple import config
 from supabase import create_client, Client
 import re
+import unicodedata
 
 from models.games import GameSchema
 from models.reviews import ReviewSchema
@@ -159,8 +160,19 @@ def add_review(review: ReviewSchema):
 def search_games(id: str):
     game = steam.apps.search_games(id)
     # for i, x in enumerate (game['apps']):
-    #     game['apps'][i]['name'] = re.sub(r'\W+', '', x['name'].encode())
+    #     game['apps'][i]['name'] = x['name'].encode(encoding="ascii",errors="ignore")
+    # game['apps'][0]['name'].encode(encoding="ascii",errors="ignore")
+    # print(game)
+    # name = game['apps'][0]['name'].encode(encoding="ascii",errors="ignore")
+    # print(str(name.decode()))
+    # game_name = unicodedata.normalize('NFC', game["apps"][0]["name"])
+    # print(game_name)
     return game['apps']
+
+@app.get("/game/{id}")
+def game_page(id: str):
+    game = steam.apps.get_app_details(str(id))
+    return game[id]["data"]
 
 
 # @app.get("/games")

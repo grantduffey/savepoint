@@ -7,7 +7,6 @@ export const SearchBar = () => {
 
     const fetchData = () => {
         const url = "http://127.0.0.1:8000/search/" + input;
-        // console.log(url);
 
         fetch(url).then((response) => response.json()).then((json) => {
             setResults(json);         
@@ -32,7 +31,7 @@ export const SearchBar = () => {
                 onChange={(e) => handleChange(e.target.value)} 
                 className="input input-bordered w-24 md:w-auto" />
             </form>
-            {results && <Navigate to="/search" state={results}/>}
+            {results && <Navigate to="/search/" state={results}/>}
         </div>
     );
 }

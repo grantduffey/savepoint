@@ -4,7 +4,7 @@ import Home, { loader as homeLoader } from './Home';
 import Layout from '../pages/Layout';
 import Error from '../pages/Error'
 import SearchResults from './SearchResults';
-import Game from './Game';
+import Game, {loader as gameLoader} from './Game';
 
 const Routes = () => {
     // const { isAuth } = useAuth();
@@ -24,8 +24,9 @@ const Routes = () => {
                     element: <SearchResults />,
                 },
                 {
-                    path: '/game',
+                    path: '/game/:id',
                     element: <Game />,
+                    loader: gameLoader
                 },
             ],
         },
