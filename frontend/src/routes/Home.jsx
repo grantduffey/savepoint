@@ -1,10 +1,5 @@
 import { useLoaderData } from 'react-router-dom';
 import '../global.css'
-import { Link } from 'react-router-dom';
-// import { createClient } from "@supabase/supabase-js";
-
-//   const supabase = createClient("https://fskfsnstsbjnjsomjxjz.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZza2ZzbnN0c2Jqbmpzb21qeGp6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTAyNTI1NTMsImV4cCI6MjAyNTgyODU1M30.YDLA6ixnTbIHXyKXHvEPw5l4a8I3TQhk9lcE8hCV35Y");
-
 
 export const loader = async () => {
     try {

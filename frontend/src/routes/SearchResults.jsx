@@ -1,20 +1,13 @@
 import '../global.css';
 import { useLocation } from "react-router-dom";
-// import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
-// import { useState } from "react";
 
 const SearchResults = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const results = location.state;
-    // results.img = results.img.replace("capsule_sm_120", "header")
-    // console.log(results[0].img.replace("capsule_sm_120", "header"))
 
     const handleClick = (e, steam_id) => {
-        // console.log("Game Clicked");
-        // console.log(steam_id[0])
         const url = "/game/" + steam_id
         return navigate(url)
     }

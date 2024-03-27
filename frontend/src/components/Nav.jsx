@@ -2,8 +2,6 @@ import { Link } from 'react-router-dom';
 import { SearchBar } from './SearchBar';
 import { useNavigate } from "react-router-dom";
 
-// import { useState } from "react"
-
 export default function Nav() {
 
     const navigate = useNavigate();
@@ -19,7 +17,6 @@ export default function Nav() {
         </div>
         <div className="flex-none gap-2">
             <div className="form-control">
-            {/* <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" /> */}
             <SearchBar/>
             </div>
             <div className="dropdown dropdown-end">
