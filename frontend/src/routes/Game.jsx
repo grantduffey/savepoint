@@ -1,8 +1,6 @@
 import '../global.css';
 import { useLoaderData } from "react-router-dom";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
-import { CreateReview } from '../components/CreateReview';
 
 export const loader = async (steam_id) => {
     try {
@@ -119,7 +117,7 @@ const Game = () => {
                             <div className="card bg-base-300 shadow-xl">
                                 <figure><img src={review.game_img} alt="Game image" /></figure>
                                 <div className="card-body">
-                                    <h2 className="card-title justify-center items-center">{review.game_title} | {review.rating} STARS</h2>
+                                    <h2 className="card-title justify-center items-center">{review.rating} STARS </h2>
                                     <p>{review.content}</p>
                                     <div className="card-actions justify-end">
                                     </div>
