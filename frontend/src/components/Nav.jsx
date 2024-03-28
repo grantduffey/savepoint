@@ -1,5 +1,5 @@
 import { SearchBar } from './SearchBar';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function Nav() {
 
@@ -30,7 +30,7 @@ export default function Nav() {
                     Profile
                 </a>
                 </li>
-                <li><a>Logout</a></li>
+                <li> <Link to="/login">Login</Link></li>
             </ul>
             </div>
         </div>
