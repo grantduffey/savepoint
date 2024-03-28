@@ -39,8 +39,7 @@ origins = [
     "http://localhost:*",
     "http://localhost:8000",
     "http://localhost:5173",
-    "https://savepointapp.netlify.app/",
-    "https://main-bvxea6i-5pmoqm6qj7eqq.us-4.platformsh.site/",
+    "https://savepointapp.netlify.app",
 ]
 
 app.add_middleware(
