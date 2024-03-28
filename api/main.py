@@ -2,6 +2,8 @@
 from fastapi import FastAPI, status, HTTPException, Depends, Response, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import OAuth2PasswordBearer
+import os
+from dotenv import load_dotenv
 from steam import Steam
 from decouple import config
 from supabase import create_client, Client
@@ -12,9 +14,16 @@ from models.games import GameSchema
 from models.reviews import ReviewSchema
 from models.users import UserSchema
 
-url = config("SUPABASE_URL")
-supa_key = config("SUPABASE_KEY")
-steam_key = config("STEAM_API_KEY")
+class Settings:
+    url = os.getenv("SUPABASE_URL")
+    supa_key = os.getenv("SUPABASE_KEY")
+    steam_key = os.getenv("STEAM_API_KEY")
+    
+settings = Settings()
+
+url = settings.url
+supa_key = settings.supa_key
+steam_key = settings.steam_key
 
 app = FastAPI()
 supabase: Client = create_client(url, supa_key)
