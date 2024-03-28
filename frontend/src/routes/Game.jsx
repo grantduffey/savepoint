@@ -1,5 +1,5 @@
 import '../global.css';
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useRevalidator } from "react-router-dom";
 import { useState } from "react";
 
 export const loader = async (steam_id) => {
@@ -45,6 +45,7 @@ const fetchReviews = async (steam_id) => {
 const Game = () => {
 
     const loaderData = useLoaderData();
+    const revalidator = useRevalidator();
     const {game, reviews} = loaderData;
 
     const [rating, setRating] = useState(5);
@@ -63,7 +64,8 @@ const Game = () => {
             },
             body: JSON.stringify(reviewContent) 
             }).then(() => {
-            location.reload()
+                document.getElementById('my_modal_3').close()
+                revalidator.revalidate();
         })
 
     }
