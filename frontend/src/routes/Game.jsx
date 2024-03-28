@@ -62,7 +62,7 @@ const Game = () => {
                 'Authorization': `Bearer ${localStorage.getItem('access_token')}`
             },
             body: JSON.stringify(reviewContent) 
-            }).then((response) => {
+            }).then(() => {
             location.reload()
         })
 

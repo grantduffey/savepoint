@@ -48,7 +48,13 @@ const Home = () => {
 
                 ))}
             </div>
-
+            <br />
+            <footer className="footer footer-center p-4 bg-secondary-300 text-base-content">
+                <aside>
+                    <p>Copyright © 2024 - All right reserved by SAVEPOINT Industries Ltd</p>
+                    <p>Special Thanks: Carolina Code School, Sean Reid, Issac Barcroft, Robert Barrett, and all of Cohort 17</p>
+                </aside>
+            </footer>
         </>
     );
 };
