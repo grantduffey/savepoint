@@ -5,6 +5,7 @@ import Layout from '../pages/Layout';
 import Error from '../pages/Error'
 import SearchResults from './SearchResults';
 import Game, {loader as gameLoader} from './Game';
+import Login from './Login';
 
 const Routes = () => {
     // const { isAuth } = useAuth();
@@ -27,6 +28,10 @@ const Routes = () => {
                     path: '/game/:id',
                     element: <Game />,
                     loader: gameLoader
+                },
+                {
+                    path: '/login',
+                    element: <Login/>,
                 },
             ],
         },
