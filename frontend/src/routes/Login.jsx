@@ -12,7 +12,7 @@ const Login = () => {
         
         const loginInfo = {"email": email, "display_name": "", "password": password}
     
-        fetch("http://127.0.0.1:8000/login", {
+        fetch(`${import.meta.env.VITE_SRC_URL}/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export const loader = async (steam_id) => {
     try {
-        const url = 'http://127.0.0.1:8000/game/' + steam_id.params.id;
+        const url = `${import.meta.env.VITE_SRC_URL}/game/` + steam_id.params.id;
         const response = await fetch(url, {
             headers: {
                 'Content-Type': 'application/json',
@@ -24,7 +24,7 @@ export const loader = async (steam_id) => {
 
 const fetchReviews = async (steam_id) => {
     try {
-        const url = "http://127.0.0.1:8000/reviews/" + steam_id;
+        const url = `${import.meta.env.VITE_SRC_URL}/reviews/` + steam_id;
         const response = await fetch(url, {
             headers: {
                 'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ const Game = () => {
         
         const reviewContent = {user_id: "a3a9dbb3-8015-4767-b86e-af68b00e41b0", steam_id: game.steam_appid, game_title: game.name, game_img: game.header_image, rating, favorite: false, content: reviewText}
 
-        fetch("http://127.0.0.1:8000/reviews/add", {
+        fetch(`${import.meta.env.VITE_SRC_URL}/reviews/add`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 
 export const loader = async () => {
     try {
-        const url = 'http://127.0.0.1:8000/reviews';
+        const url = `${import.meta.env.VITE_SRC_URL}/reviews`;
         const response = await fetch(url, {
             headers: {
                 'Content-Type': 'application/json',

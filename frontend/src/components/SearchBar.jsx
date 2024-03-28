@@ -6,7 +6,7 @@ export const SearchBar = () => {
     const [results, setResults] = useState(null);
 
     const fetchData = () => {
-        const url = "http://127.0.0.1:8000/search/" + input;
+        const url = `${import.meta.env.VITE_SRC_URL}/search/` + input;
 
         fetch(url).then((response) => response.json()).then((json) => {
             setResults(json);         
