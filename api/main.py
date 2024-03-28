@@ -21,9 +21,13 @@ class Settings:
     
 settings = Settings()
 
-url = settings.url
-supa_key = settings.supa_key
-steam_key = settings.steam_key
+platform_url = settings.url
+platform_supa_key = settings.supa_key
+platform_steam_key = settings.steam_key
+
+url = config("SUPABASE_URL")
+supa_key = config("SUPABASE_KEY")
+steam_key = config("STEAM_API_KEY")
 
 app = FastAPI()
 supabase: Client = create_client(url, supa_key)
